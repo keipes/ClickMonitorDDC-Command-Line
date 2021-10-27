@@ -1,0 +1,76 @@
+
+Description
+ClickMonitorDDC 4.8.0.
+0 Freeware----------------------------------
+
+Click taskbar notification icons to adjust the real monitor-backlight-brightness/contrast or use mouse wheel over notification iconsto increase/decrease corresponding value, much more comfortable and faster thanmanually messing around with monitor buttons,works with external monitors (DDC-protocol) and Laptop-LCD-Display.
+
+The notification icons inform you about the monitor values, you simply look at theicons to check if the wanted values are already set.You can change monitor values by using sliders or clicking buttons, but you canalso create powerful command lines, which can be used in batch filesor popup menu entries or be appended in icon properties shortcut target.You can also define hot keys or mouse wheel combinations for executing command-lines, this even works in fullscreen-games!
+
+A command line can consist of multiple arguments, for instance b 20 c 30 setsmonitor brightness 20 and contrast 30b + 6 c - 8 increases actual brightness by 6 and decreases contrast by 8optionally you can prepend monitorname or modelname or serialnumber ormonitornumber2 b + 10 increases brightness of second monitor by 10PL2779Q b 36 sets brightness 36 for monitor with name PL2779Quse for monitorname or modelname or serialnumber at least two chars.select monitor-color-profile, for instance p 6500Kchange user-profile-colors, r for red, g for green, bl or l for blue, range 0-255select monitor-input s HDMI1 s DisplayPort1 s DVI1 (or HDMI2 DisplayPort2DVI2)v 90 sets volume to 90%, v + 10 increases volume by 10%, v-8 decreases by 8%, m formute, u for unmute, x for shutting off monitors, q quits program.t b 0 c 0 t b 90 c 80 toggles between b 0 c 0 and b 90 c 80
+
+ClickMonitorDDC requires Windows 7, 8 or 10. You use this software at your ownrisk, I disclaim any responsibility for any harm.You are allowed to use and spread this program for free.
+
+commandline-usage----------------------------------------------------------------------------------------------------------------------------------optional Argument optional ValueDescription----------------------------------------------------------------------------------------------------------------------------------If you are using multiple monitors, b + or - 0 up to 100sets brightness.you can start command-line with c + or - 0 up to 100sets contrast.selecting a special monitor,the following arguments will be p 6500Kselect a color-temperature,applied to this selected monitor.possible temperatures are listedIf you do not select a monitor, inClickMonitorDDC-RGB-area,the monitor under cursor ifyou want to create your own color-temperature, is auto-selected.select User-color-temperature and modify colorsYou can select a Monitor by Monitorname, bychanging red/green/blue-luminance.Modelname, Serialnumber or Monitornumber. r + or - 0 up to 255sets red-luminanceMonitorname is listed in g + or - 0 up to 255sets green-luminanceClickMonitorDDC-window. bl or l or i + or - 0 up to 255sets blue-luminanceIf you pause the mouse pointer overthe listed monitor there will appear s HDMI1select a monitor-input, usable input-namesa tooltip-window with Modelname,are listed in ClickMonitorDDC-RGB-area.Serialnumber and so on, but not all
+
+monitors deliver these informations. v + or - 0 up to 100sets volumeMonitornumber means position of the mmutes volumelisted monitor, but using monitornumber uunmutes volumeis not recommended, because sometimes
+
+windows changes positions. xall monitors off (or specify monitorname x)When specifying Monitorname, Modelname qterminates ClickMonitorDDCor Serialnumber, omit spaces, zrestarts ClickMonitorDDCfor instance HP w2207 ?notification about current brightness/contrast/volumemust be written as HPw2207or use "HP w2207" tfor instance t b 0 c 0 t b 90 c 80
+
+toggles between b 0 c 0 and b 90 c 80
+
+dreturns current Monitor-brightness ereturns current Monitor-contrast
+
+may be useful in batch files
+
+You can use multiple arguments in one commandline (maximum length 259 chars), forinstance PL2779Q b + 10 c - 5 HPw2207 b 23 c 49
+
+more Information----------------
+
+For controlling your monitor over monitorcable, a fully functional graphics driverhas to be installed, (AMD, NVIDIA, INTEL should work)and make sure your monitor has DDC/CI-protocol enabled, also your monitor mustsupport MCCS (VESA Monitor Control Command Set),but monitors differ in implementing MCCS, so not all arguments may work, especiallyselecting color-profiles and inputs are often not fully supported, besides some monitors offer predefined game and film-modes with fixed values, whichprevents some arguments from working.
+
+ClickMonitorDDC is managed by its notification icons, therfore make sure that theseicons are not hidden, but shown on the taskbar notification area.windows 7: right click taskbar, click properties, click customize notificationarea,windows 10: right click taskbar, Settings, Select which icons appear on thetaskbar.If you want to change the sequence of taskbar icons, simply drag and drop the icon.
+
+ClickMonitorDDC also allows setting brightness of laptop/notebook-LCD-displays.Laptops have special FN-key-combinations to do this,nevertheless I implemented support for laptop-brightness, because laptops allow toadd an external monitor, and it would be irritatingif ClickMonitorDDC would not show both displays. ClickMonitorDDC shows valuesbetween 0 - 100, which is fine with external monitors,but some internal LCD-displays support less brightness-levels, the nearest level ischosen automatically.
+
+If you don't prepend a monitornumber, monitorname, modelname or serialnumber incommand-lines, then the commands affect the default monitor,which is the selected monitor in ClickMonitorDDC-window, you can select anothermonitor as default. If you run multiple monitors,then ClickMonitorDDC automatically sets the monitor under the cursor as defaultmonitor, you can enable this feature in settings.
+
+ClickMonitorDDC can create menu-popup-entries for executing command-lines, if youenter an additional comment,you can show or hide the corresponding commandline.
+
+ClickMonitorDDC offers in settings an option named 'show notifications'If you set values directly in ClickMonitorDDC-window, this option has no effect,but if you press defined hot keys and ClickMonitorDDC-window is invisible,then setting this option gives you an optical feedback, what the pressed hot keydid.
+
+ClickMonitorDDC supports easy to use command-line-arguments, maybe the rarely usedtoggle-feature needs some extra explaination.for instance define a hotkey with this commandlinet b 0 c 0 t b 100 c 100first time you press the hotkey, you set monitor brightness 0 and contrast 0,second time you press the same hotkey, you will set brightness 100, contrast 100,third time behaves like first time and so on, this way using one hotkey, you canexecute two different profiles in turn.
+
+In special settings, you can define up to 8 times to auto-run-command-lines.Unchecking the corresponding checkbox deactivates the command-line.If the time-condition is fulfilled then the command-line is executed one-time perday, not permanently like some other software-color-filter-programs do.ClickMonitorDDC instead changes the real internal monitor-hardware-values. Monitor-values are stored in EEPROM inside monitor.If EEPROMS are excessively written (at least more than 100000) they could losestorage-functionality, so more a theoretical issue.But for safety ClickMonitorDDC does not continuously write to monitor.Also executing auto-command-lines only one time allows you still changing values asyou want.07:00 AM b 3008:00 AM b 40 09:00 AM b 5007:30 PM b 4008:20 PM b 3008:40 PM b 20If you boot up your computer at 02:00 PM then the nearest past time-command b 50 isexecuted one-time per day, at 7:30 PM b 40 will be executed one-time.You can force executing command-line again by restarting ClickMonitorDDC, reallyexit and start again or use rescan monitors,simply double-clicking ClickMonitorDDC will have no effect, because ClickMonitorDDCdoes not start again, if already running.Alternatively entering and leaving ClickMonitorDDC-settings will also check and runauto-run-command-line.You could also execute command-lines with multiple arguments07:00 AM b 10 c 20 l 25008:00 AM b 20 c 25 l 252This would increase brightness, contrast and blue-luminance.
+
+Version-History---------------
+
+4.8.0.0sometimes volume-icon was automatically added. fixed.
+
+4.7.0.0Two new settings-optionsVerify values: After set value, read value from monitor, to check success, becausea few monitors report success, but in fact there was no change,costs additional 50 ms.Save values: A few monitors forget changes done by user over monitorcable afterpowering off, this option makes sure that values are really stored in monitor,costs additional 200 ms.
+
+4.6.0.0You can choose from seven different fonts for notification icons, especially usefulfor differentiating multiple monitors.
+
+Now you can run ClickMonitorDDC without notification icons, then ClickMonitorDDC-main-window can only be opened by running program again (without arguments),and context menu can only be opened by right clicking in ClickMonitorDDC-main-window.
+
+Argument x shuts all monitors down to power-safe-mode, this is done by windows, andis not monitor-specific.Now if you prepend a monitornumber, monitorname, modelname or serialnumber thenonly this monitor is set to power-safe-mode by using MCCS-VCP-control-code.For instance the following command-line sets a monitor with name PHL32M and amonitor with name HP27WZ to power-safe-mode. All other monitors are ignored.PHL32M x HP27WZ xRunning this commandline again would wake up these monitors.
+
+4.5.0.0ClickMonitorDDC now shows brightness/contrast notification icons for each monitor,not only one icon like in earlier versions,this is very useful with multiple monitors, because now you can use mouse wheel foreach monitor-icon.You should arrange notification icons by drag & drop. This cannot be doneautomatically by program. 4.4.0.0ClickMonitorDDC portable version is a file which can be run from any locationwithout installation, but you can also download a setup version,which uses the standard Windows Install/Uninstall-procedure. Setup version wascreated with Inno Setup by Jordan Russell, Martijn Laan.http://www.jrsoftware.org/If you want to 'uninstall' ClickMonitorDDC, right click notification icon and thenclick 'Uninstall program' or use Windows Unsinstall program if using Setup version.It doesn't matter which version you use, both versions run the sameClickMonitorDDC.exe file.If you mess around with monitor-buttons, ClickMonitorDDC may show outdated values.Using the new Settings-Option 'Reread values from monitors' will forceClickMonitorDDC to reread values from external monitors before openingClickMonitorDDC-window,but this delays opening of ClickMonitorDDC-window, so normally this option is notrecommended, alternatively yon can right click notification icon and click 'Rescanmonitors'.But if you only work with ClickMonitorDDC there will never be outdated values.Windows informs programs if Laptop-LCD-brightness changes, but for externalmonitors this is impossible.
+
+4.3.0.0ClickMonitorDDC is a small program without any suspicious activities, no callinghome, no update-function, no writing to registry,nevertheless sometimes very few heuristic Anti-Virus-engines think there would besuspicious code and show an unspecific warning.This new version is created with other compiler option and at least for the momentthe warnings are gone.
+
+4.2.0.2ClickMonitorDDC supports multiple monitors, simply by clicking in the main-window,or by using commandlines with monitorname/modelname/serialnumber/monitornumber,these commandlines can also be used for mouse wheel + key-combinations, but foreasy use, you can simply use mouse wheel alone over noctification-icons.
+
+4.2.0.0ClickMonitorDDC realizes hotkeys by keyboard/mouse-hooks.Now these hooks run in a separate thread, this way mouse/keyboard-handling shouldalways be smooth.
+
+4.1.0.4Moving settings window around could sometimes cause some incorrect redrawing ofsettings window. Fixed.
+
+4.1.0.3Maybe you have an AV Receiver connected, which shows up as a monitor, but cannot becontrolled or there is an additional monitor connected, you never use.You can right click an uncontrollable device (which is listed with brightness ?contrast ?),then you can click 'Ignore monitor -> ClickMonitorDDC-window opens a little bitfaster', from now on ClickMonitorDDC-window should open a little bit faster.Click 'Utilize monitor' if the device shall be checked again.Clicking 'Copy Debug-Infos of all monitors to Clipboard' can be used to email somedebug-infos to the program-author.These are only some special data, not a complete feature-listing of the monitors.
+
+4.1.0.2ClickMonitorDDC was primarily developed to control external monitors in the mostuser-friendly way, for instance use mouse wheel over icons or define hot-keys and so on.Internal Laptop-LCD have built-in brightness-support by using FN-keyboard-keys orwindows-sliders, but ClickMonitorDDC can also speed up handling of internal Laptop-LCD.This version comes with an unique feature for Laptop-Displays, activate thisfeature in settings by clicking 'same Laptop-Brightness for battery and plugged',from now on Laptop-Display keeps same brightness ignoring power-source-changes.Windows 10 comes with an additional Battery saver feature, which can automaticallylower brightness, so for instance brightness 100 is forced down to brightness 70,there is no way to set brightness back to 100 if Battery saver with lowerbrightness option is active,therefore 'same Laptop-Brightness for battery and plugged' is temporarilydeactivated if Battery saver is detected.Battery saver also gets automatically activated if 'Power saver' plan is chosen andLaptop is on battery.
+
+4.1.0.1Monitor name should be defined in EDID using 0xFC descriptor, external monitorsnormally do this, but internal LCD-Displayoften do not implement this 0xFC descriptor, instead sometimes there is a 0xFEdescriptor, which means unspecified text,ClickMonitorDDC now uses this unspecified text for monitor name if there is noconcrete monitor name definition.ClickMonitorDDC shows values between 0 - 100, which is fine with external monitors,but internal LCD-display may support less levels, often only 16 levels,for instance 1 3 4 5 6 8 10 13 17 22 29 38 49 63 80 100. Windows says every laptopmust report a maximum brightness level of 100,but there are old laptops reporting for instance 0 1 2 3 4 5 6 7 8 9 10 11 12 13 1415.These numbers only reflect a corresponding hardware-brightness-level and differentLaptop models often have different numbers.ClickMonitorDDC now recalculates level numbers to 0 - 100 in a linear more user-friendly way.
+
+4.0.0.6Behavior of the 8 timers for auto-run commands was improved.
+
+4.0.0.0ClickMonitorDDC now uses for Laptop-Display-handling WmiMonitorBrightnessEvent,WmiMonitorBrightness, WmiSetBrightness, GetMonitorRawEEdidV1Block instead ofDeviceIoControl.
