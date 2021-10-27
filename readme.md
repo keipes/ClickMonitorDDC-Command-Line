@@ -1,1 +1,1 @@
-https://ghdriveways.github.io/ClickMonitorDDC-Coomand-Line/
+https://ghdriveways.github.io/ClickMonitorDDC-Command-Line/
